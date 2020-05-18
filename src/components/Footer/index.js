@@ -9,7 +9,7 @@ export default function Footer(props) {
                 <li><Link to="/home">Home</Link></li>
                 <li><Link to="/aboutus">Sobre</Link></li>
                 <li><Link to="/menu">Menu</Link></li>
-                <li><Link to="contato">Contato</Link></li>
+                <li><Link to="/contato">Contato</Link></li>
             </ul>
         </div>
     );
