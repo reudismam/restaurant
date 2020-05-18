@@ -1,0 +1,16 @@
+.footer {
+    display: flex;
+    background-color: #42A5F5;
+    height: 5rem;
+    justify-content: center;
+}
+
+.footer li {
+    text-decoration: none;
+    list-style-type:none;
+}
+
+.footer a {
+    color: whitesmoke;
+    margin-right: 2em;
+}
