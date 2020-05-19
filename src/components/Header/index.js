@@ -14,7 +14,7 @@ export default function Header(props) {
                     <NavbarBrand className="mr-auto" href="/">
                         <img src="assets/images/logo.png" height="30" width="41" alt="Restaurante" />
                     </NavbarBrand>
-                    <Collapse isOpen={isNavOpen} navbar>
+                    <Collapse isOpen={!isNavOpen} navbar>
                         <Nav navbar>
                             <NavItem>
                                 <NavLink className="nav-link" to="/home">
