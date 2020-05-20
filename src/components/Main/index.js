@@ -2,20 +2,26 @@ import React, {useState} from 'react';
 import Menu from '../Menu';
 import Home from '../Home';
 import Contact from '../Contact';
-import {DISHES} from '../../shared/dishes';
-import {COMMENTS} from '../../shared/comments';
-import {PROMOTIONS} from '../../shared/promotions';
-import {LEADERS} from '../../shared/leaders';
 
-import {Switch, Route, Redirect} from 'react-router-dom';
+import {Switch, Route, Redirect, withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
 import Header from '../Header';
 import Footer from '../Footer';
 
-export default function Main() {
-  const [dishes] = useState(DISHES);
-  const [comments] = useState(COMMENTS);
-  const [promotions] = useState(PROMOTIONS);
-  const [leaders] = useState(LEADERS);
+const mapeieEstadoParaProps = (state) => {
+  return {
+    dishes: state.dishes,
+    comments: state.comments,
+    promotions: state.promotions,
+    leaders: state.leaders
+  }
+}
+
+function Main(props) {
+  const [dishes] = useState(props.dishes);
+  const [comments] = useState(props.comments);
+  const [promotions] = useState(props.promotions);
+  const [leaders] = useState(props.leaders);
 
   return (
     <div>
@@ -34,12 +40,5 @@ export default function Main() {
   );
 }
 
-/*
-<Navbar dark color="primary">
-        <div className="container">
-          <NavbarBrand href="/">Restaurante</NavbarBrand>
-        </div>
-      </Navbar>
-      <Menu dishes={dishes} onClick={(dishId) => onSelectedDish(dishId)}/>
-      <DishDetail dish={dishes.filter((dish) => dish.id === selectedDish)[0]}/>
-*/
+
+export default withRouter(connect(mapeieEstadoParaProps)(Main));
